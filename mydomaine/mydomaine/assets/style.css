@@ -1,0 +1,198 @@
+@charset "utf-8";
+
+/*	version: "v4.3"	*/
+/* CSS Document */
+
+.copy-bold {
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 32px;
+	color: #fff;
+	
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-ms-text-size-adjust: 100%;
+    letter-spacing: 0.5px;
+}
+
+.copy-reg {
+	color: #fff;
+	font-size: 23px;
+	line-height: 24px;
+	
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* End Font Styles */
+
+
+body, html {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+body {
+	display: none;
+}
+
+#unit-container {
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+#main-panel {
+	background-color: #e81e1e;
+}
+
+.panel {
+	overflow: hidden;
+}
+
+
+img, svg {
+	width: 100%;
+	height: 100%;
+    position: absolute;
+}
+
+.full-col {
+	width: 300px;
+	height: 250px;
+}
+
+.full-exp {
+	
+}
+
+.free {
+	position: absolute;
+}
+
+.centered {
+	text-align: center;
+}
+
+.no-point {
+	pointer-events: none !important;
+}
+
+
+
+
+#intro {
+	z-index: 2;
+	left: 15px;
+    top: 15px;
+	width: 270px;
+}
+
+.intro {
+	left: 0;
+	top: 0;
+    transform-origin: 50% 50%;
+	transform: translateX(-20px);
+    opacity: 0;
+}
+
+.intro span {
+    display: inline-block;
+    position: relative;
+    margin-right: 3px;
+}
+sup {
+    position: absolute;
+    font: normal 16px/28px 'Mecherle-Legal';
+    top: -5px;
+}
+.intro sup {
+    font-size: 0.55em;
+    line-height: 1.2em;
+    top: 0;
+    right: -6px;
+}
+
+.intro .tm {
+    right: -10px;
+}
+
+#mobile {
+	width: 300px;
+	height: 250px;
+	margin-left: 0;
+	margin-top: 0;
+	overflow: hidden;
+	transform-origin: 0% 0%;
+	transform: translateX(300px);
+	display: inline-block;
+    z-index: 2;
+}
+
+#orb {
+    width: 206px;
+    height: 162px;
+    right: 0;
+    bottom: 0;
+    background: url(../images/orb.png) top left no-repeat;
+}
+
+#car, .carImg {
+    width: 333px;
+	height: 153px;
+}
+
+#car {
+	left: 54px;
+	top: 96px;
+	transform-origin: 50% 50%;
+	transform: scale(0);
+	z-index: 2;
+}
+
+#car1 {
+    background: url(../images/car1.png) top left no-repeat;
+}
+
+#car2 {
+    background: url(../images/car2.png) top left no-repeat;
+    transform: translateX(350px);
+    opacity: 0;
+}
+
+
+#cta svg {
+    overflow: visible;
+}
+#cta {
+	width: 127px;
+	height: 32px;
+	left: 15px;
+	top: 103px;
+    opacity: 0;
+}
+
+p {
+	margin: 0;
+}
+
+#legal {
+	font: normal 8px/9px 'Mecherle-Legal';
+	transform-origin: 100% 0%;
+	bottom: 10px;
+	left: 15px;
+    opacity: 0;
+    color: #fff;
+}
+
+#logo {
+	width: 130px;
+	height: 18px;
+	bottom: 15px;
+	right: 15px;
+}

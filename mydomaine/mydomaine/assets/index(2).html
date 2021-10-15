@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://s0.2mdn.net/8538740/1616686578913/Multi_300x250.04/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="ad.size" content="width=300,height=250">
+	<link rel="StyleSheet" href="./styles(1).css" type="text/css">
+	<script src="./gsap_3.5.1_min.js"></script>
+	<script src="./animation(1).js"></script>
+	<script type="text/javascript">
+		var clickTag = "https://business.americanexpress.com/us/business-quiz?linknav=US-Acq-GCP-BusinessCards-ViewAllCards-Quiz";
+	</script>
+<script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script></head>
+
+<body onload="init()">
+	<div id="container_dc" style="display: block;">
+		<div id="content_dc">
+			<div id="bg1" class="bg_colors full_div">
+				<div id="img1" class="svg_image full_div" style="transform: translate3d(350px, 0px, 0px);"><img src="./img1.svg"></div>
+
+				<div id="bbc_container2" class="main_cards card_containers full_div" style="display: none; transform: translate3d(-350px, 0px, 0px);">
+					<div class="card_holder full_div">
+						<div class="card_drop full_div"></div>
+						<div class="cards full_div"><img src="./card1.png"></div>
+						<div class="shine_mask full_div">
+							<div class="card_shine full_div" style="transform: translate3d(0px, 0px, 0px);"><img src="./shine(1).png" width="224" height="150"></div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+			<div id="bg2" class="bg_colors full_div">
+				<div id="img2" class="svg_image full_div" style="transform: translate3d(350px, 0px, 0px);"><img src="./img2.svg"></div>
+
+				<div id="gold_container2" class="main_cards card_containers full_div" style="display: none; transform: translate3d(100px, 0px, 0px);">
+					<div class="card_holder full_div">
+						<div class="card_drop full_div"></div>
+						<div class="cards full_div"><img src="./card2.png"></div>
+						<div class="shine_mask full_div">
+							<div class="card_shine full_div" style="transform: translate3d(0px, 0px, 0px);"><img src="./shine(1).png" width="224" height="150"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div id="bg3" class="bg_colors full_div">
+				<div id="img3" class="svg_image full_div" style="transform: translate3d(350px, 0px, 0px);"><img src="./img3.svg"></div>
+
+				<div id="bbp_container2" class="main_cards card_containers full_div" style="display: none; transform: translate3d(100px, 0px, 0px);">
+					<div class="card_holder full_div">
+						<div class="card_drop full_div"></div>
+						<div class="cards full_div"><img src="./card3.png"></div>
+						<div class="shine_mask full_div">
+							<div class="card_shine full_div" style="transform: translate3d(0px, 0px, 0px);"><img src="./shine(1).png" width="224" height="150"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="bg4" class="bg_colors full_div">
+				<div id="img4" class="svg_image full_div" style="transform: translate3d(350px, 0px, 0px);"><img src="./img4.svg"></div>
+
+				<div id="plat_container2" class="main_cards card_containers full_div" style="display: none; transform: translate3d(100px, 0px, 0px);">
+					<div class="card_holder full_div">
+						<div class="card_drop full_div"></div>
+						<div class="cards full_div"><img src="./card4.png"></div>
+						<div class="shine_mask full_div">
+							<div class="card_shine full_div" style="transform: translate3d(0px, 0px, 0px);"><img src="./shine(1).png" width="224" height="150"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="cta" class="full_div" style="opacity: 0; visibility: hidden; transform: translate3d(-300px, 0px, 0px);">
+				<div class="cta_out cta_arrow full_div"><img src="./cta_arrow(1).png"></div>
+			</div>
+
+			<div id="copy1" class="full_div">
+				<div class="full_div" style="opacity: 0; visibility: hidden; transform: translate3d(-300px, 0px, 0px);"><img src="./copy1a(1).png"></div>
+				<div class="full_div" style="opacity: 0; visibility: hidden; transform: translate3d(-300px, 0px, 0px);"><img src="./copy1b(1).png"></div>
+				<div class="full_div" style="opacity: 0; visibility: hidden; transform: translate3d(-300px, 0px, 0px);"><img src="./copy1c(1).png"></div>
+			</div>
+
+			<div id="copy6" class="full_div">
+				<div class="full_div" style="opacity: 0; visibility: hidden; transform: translate3d(-300px, 0px, 0px);"><img src="./copy6a.png"></div>
+				<div class="full_div" style="opacity: 0; visibility: hidden; transform: translate3d(-300px, 0px, 0px);"><img src="./copy6b.png"></div>
+			</div>
+
+			<div id="bottom_cards" class="full_div">
+				<div id="bbc_container" class="card_containers full_div" style="transform: translate3d(0px, 185px, 0px) scale(0.8, 0.8);">
+					<div class="card_holder full_div">
+						<div class="cards full_div"><img src="./card1.png"></div>
+						<div class="shine_mask full_div">
+							<div class="card_shine full_div" style="transform: translate3d(0px, 0px, 0px);"><img src="./shine(1).png" width="224" height="150"></div>
+						</div>
+					</div>
+				</div>
+
+				<div id="gold_container" class="card_containers full_div" style="transform: translate3d(0px, 185px, 0px) scale(0.8, 0.8);">
+					<div class="card_holder full_div">
+						<div class="cards full_div"><img src="./card2.png"></div>
+						<div class="shine_mask full_div">
+							<div class="card_shine full_div" style="transform: translate3d(0px, 0px, 0px);"><img src="./shine(1).png" width="224" height="150"></div>
+						</div>
+					</div>
+				</div>
+
+				<div id="bbp_container" class="card_containers full_div" style="transform: translate3d(0px, 185px, 0px) scale(0.8, 0.8);">
+					<div class="card_holder full_div">
+						<div class="cards full_div"><img src="./card3.png"></div>
+						<div class="shine_mask full_div">
+							<div class="card_shine full_div" style="transform: translate3d(0px, 0px, 0px);"><img src="./shine(1).png" width="224" height="150"></div>
+						</div>
+					</div>
+				</div>
+
+				<div id="plat_container" class="card_containers full_div" style="transform: translate3d(0px, 185px, 0px) scale(0.8, 0.8);">
+					<div class="card_holder full_div">
+						<div class="cards full_div"><img src="./card4.png"></div>
+						<div class="shine_mask full_div">
+							<div class="card_shine full_div" style="transform: translate3d(0px, 0px, 0px);"><img src="./shine(1).png" width="224" height="150"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="footer" class="full_div"></div>
+			<div id="logo" class="full_div"><img src="./logo(1).png"></div>
+
+
+			<div id="copy2a" class="full_div" style="transform: translate3d(0px, 0px, 0px); opacity: 0; visibility: hidden;"><img src="./copy2a(1).png"></div>
+			<div id="copy3a" class="full_div" style="transform: translate3d(0px, 0px, 0px); opacity: 0; visibility: hidden;"><img src="./copy3a(1).png"></div>
+			<div id="copy4a" class="full_div" style="transform: translate3d(0px, 0px, 0px); opacity: 0; visibility: hidden;"><img src="./copy4a.png"></div>
+			<div id="copy5a" class="full_div" style="transform: translate3d(0px, 0px, 0px); opacity: 0; visibility: hidden;"><img src="./copy5a.png"></div>
+
+
+		</div>
+		<div id="border_div" class="full_div"></div>
+		<div id="bgFade" class="full_div"></div>
+		<a id="background_exit_dc" onclick="javascript:window.open(window.clickTag)" target="_blank"></a>
+	</div>
+
+
+</body></html>

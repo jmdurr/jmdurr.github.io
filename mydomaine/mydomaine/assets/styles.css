@@ -1,0 +1,132 @@
+
+/* Default style, feel free to remove if not needed. */
+body, body * {
+	vertical-align: baseline;
+	border: 0;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+    font-size: 0;
+	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;	
+}
+
+#container_dc img { display: block; width: 100%; height: auto; position: absolute; }
+
+/* global */
+#container_dc {
+	position: absolute;
+	width: 300px;
+	height: 250px;
+	top: 0;
+	left: 0;
+	
+	margin: auto;
+	overflow:hidden;
+}
+#content_dc {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+	overflow:hidden;	
+}
+
+#bgFade {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9994;
+	background-color: #fff;
+}
+#border_div {
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	width: 300px;
+	height: 250px;
+	top: 0px;
+	left: 0px;
+	border:1px solid #000;
+}
+
+.full_div{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+}
+
+.imgDiv{
+	position:absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: auto;
+	background-color:transparent;
+}
+
+
+.cta_roll {
+	display:none;
+}
+
+#cta{
+    top: -22px;
+    left: 1px;
+}
+.shine_mask{
+	background-color:transparent;
+    left: 10px;
+    top: 202px;
+    height: 111px;
+    width: 111px;
+    border-radius: 4px;
+    overflow: hidden;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
+	mask-image: radial-gradient(white, black);
+}
+
+
+.card_shine{
+	left:-310px;
+}
+
+.line1{
+    width: 87px;
+    height: 1px;
+    left: 71px;
+    top: 156px;
+    background-color: white;
+}
+.line2{
+    width: 73px;
+    height: 1px;
+    left: 70px;
+    top: 156px;
+    background-color: white;
+}
+
+/* Invisible button for background clickthrough. */
+#background_exit_dc {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	background-color:transparent;
+	z-index: 400;
+}
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
